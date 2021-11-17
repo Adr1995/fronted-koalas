@@ -1,3 +1,7 @@
 .navbar .navbar-menu-wrapper .navbar-nav .btn-contact-us {
     margin-left: 30px;
 }
+
+.card-contents {
+    border-radius: 25px;
+}
