@@ -1,0 +1,47 @@
+
+<div class="login">
+    <form class="custom-form" method="post">
+        <div>
+            <div class="divInput">
+                <input 
+                type="email" 
+                [(ngModel)]="loginForm.email" 
+                class="inputtext" 
+                name="email" 
+                id="email" 
+                data-testid="royal_email" 
+                placeholder="Correo electrónico" 
+                autofocus="1" 
+                aria-label="Correo electrónico" 
+                required="required"
+                />
+            </div>
+
+            <div class="divInput">
+                <input
+                type="password"
+                [(ngModel)]="loginForm.password"
+                class="inputtext"
+                name="password"
+                placeholder="Contraseña"
+                required="required"
+                />
+            </div>
+        </div>
+
+        <div class="divBoton">    
+            <button type="submit" class="botonLogin" (click)="login()">Entrar</button>
+        </div>
+            
+        <div class="divEnlace">
+            <a href="#" class="enlaceRecuperarContraseña">¿Has olvidado la contraseña?</a>
+        </div>
+
+        <div class="separador"></div>
+
+        <div class="divCrearCuenta">
+            <button href="#" class="botonCrearCuenta">Crear nueva cuenta</button>
+        </div>
+    </form>
+  </div>
+
