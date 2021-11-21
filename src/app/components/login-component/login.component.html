@@ -5,7 +5,7 @@
             <div class="divInput">
                 <input 
                 type="email" 
-                [(ngModel)]="loginForm.email" 
+                
                 class="inputtext" 
                 name="email" 
                 id="email" 
@@ -20,7 +20,7 @@
             <div class="divInput">
                 <input
                 type="password"
-                [(ngModel)]="loginForm.password"
+                
                 class="inputtext"
                 name="password"
                 placeholder="Contraseña"
@@ -33,14 +33,14 @@
             <button type="submit" class="botonLogin" (click)="login()">Entrar</button>
         </div>
             
-        <div class="divEnlace">
+        <!-- <div class="divEnlace">
             <a href="#" class="enlaceRecuperarContraseña">¿Has olvidado la contraseña?</a>
-        </div>
+        </div> -->
 
         <div class="separador"></div>
 
         <div class="divCrearCuenta">
-            <button href="#" class="botonCrearCuenta">Crear nueva cuenta</button>
+            <button class="botonCrearCuenta"><a href="/signup">Crear nueva cuenta</a></button>
         </div>
     </form>
   </div>
