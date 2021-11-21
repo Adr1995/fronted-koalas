@@ -1,7 +1,49 @@
+.navbar {
+    padding: 35px 0 35px;
+}
+
 .navbar .navbar-menu-wrapper .navbar-nav .btn-contact-us {
     margin-left: 30px;
 }
 
 .card-contents {
     border-radius: 25px;
+}
+
+.case-studies .case-studies-card-img {
+    height: 250px;
+    width: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.logo {
+    width: 220px;
+}
+
+.navbar .navbar-menu-wrapper .navbar-nav .nav-link:hover {
+    color: #8b00ff;
+}
+
+.btn-violet {
+    background-color: #8b00ff;
+    border-color: #8b00ff;
+}
+
+.btn-violet:hover {
+    background: transparent;
+    color: #8b00ff;
+    border: 1px solid #8b00ff;
+}
+
+.btn-gradient {
+    background: rgb(139,0,255);
+    background: linear-gradient(90deg, rgba(139,0,255,1) 0%, rgba(25,152,255,1) 100%);
+    color: #fff;
+    border: 0px;
+}
+
+.home-image {
+    width: 600px;
+    margin-top: 30px;
 }
