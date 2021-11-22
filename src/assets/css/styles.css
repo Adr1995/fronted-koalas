@@ -41,9 +41,21 @@
     background: linear-gradient(90deg, rgba(139,0,255,1) 0%, rgba(25,152,255,1) 100%);
     color: #fff;
     border: 0px;
+    padding: .670rem 1.29rem;
+}
+
+.btn-gradient:hover {
+    background: #fff;
+    color: #8b00ff;
+    border: 1px solid #8b00ff;
+    padding: .625rem 1.25rem;
 }
 
 .home-image {
     width: 600px;
     margin-top: 30px;
+}
+
+.case-studies .color-cards:hover .card-details, .case-studies .color-cards:hover .card-details p {
+    color: #8b00ff;
 }

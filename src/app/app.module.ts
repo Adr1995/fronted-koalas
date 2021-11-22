@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login-component/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './components/signup/signup.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SignupComponent } from './components/signup/signup.component';
     ContentComponent,
     LoginComponent,
     SignupComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
