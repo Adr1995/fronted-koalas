@@ -59,3 +59,7 @@
 .case-studies .color-cards:hover .card-details, .case-studies .color-cards:hover .card-details p {
     color: #8b00ff;
 }
+
+.img-icons {
+    width: 60px;
+}
