@@ -1,0 +1,61 @@
+<div class="login">
+    <form class="custom-form" method="post">
+        <div>
+            <h2>Registrarte</h2>
+
+            <div class="divInput">
+                <input 
+                    type="email" 
+                    [(ngModel)]="signupForm.email" 
+                    class="inputtext" 
+                    name="email" 
+                    id="email" 
+                    data-testid="royal_email" 
+                    placeholder="Correo electrónico" 
+                    autofocus="1" 
+                    aria-label="Correo electrónico" 
+                    required="required"
+                />
+            </div>
+            <div class="divInput">
+                <input 
+                    type="text"
+                    [(ngModel)]="signupForm.name" 
+                    class="inputtext" 
+                    name="name" 
+                    placeholder="Nombre"
+                    required="required"
+                >
+            </div>
+            <div class="divInput">
+                <input 
+                    type="text"
+                    [(ngModel)]="signupForm.username" 
+                    class="inputtext" 
+                    name="username" 
+                    placeholder="Nombre de usuario"
+                    required="required"
+                >
+            </div>
+
+            <div class="divInput">
+                <input
+                type="password"
+                [(ngModel)]="signupForm.password"
+                class="inputtext"
+                name="password"
+                placeholder="Contraseña"
+                required="required"
+                />
+            </div>
+        </div>
+
+        <div class="divBoton">    
+            <button type="submit" class="botonRegistrarse" (click)="signup()">Registrarte</button>
+        </div>
+        <div class="divEnlace">
+            <p>¿Ya tienes cuenta? <a href="/login" class="enlaceRecuperarContraseña"> Inicia Sesión</a></p>
+        </div>
+    </form>
+  </div>
+
