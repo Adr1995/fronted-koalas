@@ -45,6 +45,7 @@ login(){
       // console.log(res) //para ver el token, esto no hay que dejarlo, es solo para verlo
       // this.logged = true;
       this.router.navigateByUrl('/')
+      this.toastr.success("Has iniciado sesión correctamente");
     })
     .catch(err => {
       if (err.status == 404){

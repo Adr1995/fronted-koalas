@@ -5,12 +5,19 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class AuthService {
-  url: string = 'http://localhost:5000';
+  url: string = 'https://koalagram-back-z8nb6iyiq-ana-valdemoro.vercel.app';
   constructor() { }
 
   public login(body: any) {
     console.log(body);
     return axios.post(`${this.url}/api/auth/login`, body)
+      .then(result => result.data)
+  }
+
+  public signup(body: any){
+    console.log(body);
+
+    return axios.post(`${this.url}/api/auth/register`, body)
       .then(result => result.data)
   }
 
