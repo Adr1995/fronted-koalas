@@ -9,7 +9,8 @@ export class AuthService {
   constructor() { }
 
   public login(body: any) {
-    return axios.post(`${this.url}/login`, body)
+    console.log(body);
+    return axios.post(`${this.url}/api/auth/login`, body)
       .then(result => result.data)
   }
 
