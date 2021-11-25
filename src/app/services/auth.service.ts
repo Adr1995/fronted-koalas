@@ -24,7 +24,7 @@ export class AuthService {
 
   public getCurrentUser() {
     const token = localStorage.getItem('token');
-    return axios.get(`${this.url}/me`, { headers: { authorization: `Bearer ${token}` } })
+    return axios.get(`${this.url}`, { headers: { authorization: `Bearer ${token}` } })
       .then(res => { 
         localStorage.setItem('user' , JSON.stringify(res.data) )
         return res.data;

@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './components/signup/signup.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ModalComponent } from './components/modal/modal.component';
     LoginComponent,
     SignupComponent,
     ModalComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

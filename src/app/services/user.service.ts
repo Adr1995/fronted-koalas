@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from "@angular/common/http";
+import axios from 'axios';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  url: string = 'https://koalagram-back-z8nb6iyiq-ana-valdemoro.vercel.app';
 
-  login(user: any): Observable<any> {
-    return this.http.post("https://reqres.in/api/login", user);
+  constructor() {}
+
+    public getUserInfo() {
+      const token = localStorage.getItem('token');
+      return axios.get(`${this.url}/api/user/` ,   ) //header
+      .then(result => result.data)
   }
- }
+    }
+
+
+ 
