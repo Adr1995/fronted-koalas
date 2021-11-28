@@ -30,6 +30,7 @@ export class ProfileComponent implements OnInit {
     //   })
     // }
     let logged : boolean = false
+    
 
     if(localStorage.getItem('token')){
       logged = true;
@@ -42,17 +43,19 @@ export class ProfileComponent implements OnInit {
           this.toastr.error('No se ha podido cargar el usuario', err)
         })
     }
+
+    console.log("Current user: " + this.currentUser);
   }
 
-  // loadData() {
-  //   this.userService.getUserInfo()
-  //     .then(resultados => {
-  //       this.user = resultados;
-  //     })
-  //     .catch(err => {
-  //       this.toastr.error('No se ha podido cargar los datos de su usuario', err)
-  //     })
-  // }
+  loadData() {
+    this.userService.getUserInfo()
+      .then(resultados => {
+        this.user = resultados;
+      })
+      .catch(err => {
+        this.toastr.error('No se ha podido cargar los datos de su usuario', err)
+      })
+  }
 
   ngOnInit(): void {
   }
