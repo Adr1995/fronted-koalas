@@ -12,12 +12,14 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileComponent implements OnInit {
   currentUser: any;
   user : Users[] = [];
+  logged : boolean = false
 
   constructor(
     private userService: UserService,
     private authService: AuthService,
     private toastr: ToastrService,
   ) { 
+
     // console.log(this.user);
     // this.loadData();
     // if ( localStorage.getItem('user')){
@@ -29,11 +31,9 @@ export class ProfileComponent implements OnInit {
     //     this.currentUser = user;
     //   })
     // }
-    let logged : boolean = false
     
-
     if(localStorage.getItem('token')){
-      logged = true;
+      this.logged = true;
       console.log("tengo un token")
       this.userService.getUserInfo()
         .then(resultados => {

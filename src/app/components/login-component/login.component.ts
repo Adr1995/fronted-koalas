@@ -47,7 +47,6 @@ login(){
       localStorage.setItem('user', res.user);
       this.router.navigateByUrl('/')
       this.toastr.success("Has iniciado sesión correctamente");
-      window.location.reload();
     })
     .catch(err => {
       if (err.response.status === 404 || err.response.status === 401 ){
