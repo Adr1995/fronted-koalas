@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './components/signup/signup.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard } from './guards/auth.guard';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     SignupComponent,
     ModalComponent,
     ProfileComponent,
+    TasksComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

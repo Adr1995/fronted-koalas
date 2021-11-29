@@ -1,0 +1,10 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let task of tasks">
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{task.title}}</div>
+            <div class="card-body">
+              <p class="card-text">{{task.text}}</p>
+            </div>
+          </div>
+    </li>
+</ul>

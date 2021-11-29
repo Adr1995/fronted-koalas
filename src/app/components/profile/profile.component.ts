@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Users } from 'src/app/models/user/Users.model';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,12 +10,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
-  user : Users[] = [];
-  logged : boolean = false
+  users : Users[] = [];
+  profile : any;
+  // logged : boolean = false
 
   constructor(
     private userService: UserService,
-    private authService: AuthService,
     private toastr: ToastrService,
   ) { 
 
@@ -32,25 +31,40 @@ export class ProfileComponent implements OnInit {
     //   })
     // }
     
+    // this.loadData();
+    this.loadUserProfile();
+    
     if(localStorage.getItem('token')){
-      this.logged = true;
-      console.log("tengo un token")
-      this.userService.getUserInfo()
-        .then(resultados => {
-          this.user = resultados;
-        })
-        .catch(err => {
-          this.toastr.error('No se ha podido cargar el usuario', err)
-        })
+      // this.logged = true;
+      // console.log("tengo un token")
+    //   this.userService.listUserInfo()
+    //     .then(resultados => {
+    //       this.users = resultados;
+    //       // console.log("users: " +  JSON.stringify(this.users))
+    //     })
+    //     .catch(err => {
+    //       this.toastr.error('No se ha podido cargar el usuario', err)
+    //     })
     }
 
     console.log("Current user: " + this.currentUser);
   }
 
+  async loadUserProfile() {
+    try {
+      this.profile = await this.userService.getUserProfile();
+     console.log(this.profile);
+    } catch (error) {
+      console.log(error);
+      
+    }
+     
+  }
+
   loadData() {
-    this.userService.getUserInfo()
+    this.userService.listUserInfo()
       .then(resultados => {
-        this.user = resultados;
+        this.users = resultados;
       })
       .catch(err => {
         this.toastr.error('No se ha podido cargar los datos de su usuario', err)

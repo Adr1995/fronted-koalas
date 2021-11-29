@@ -5,6 +5,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login-component/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 import { AuthGuard } from './guards/auth.guard';
 
 
@@ -12,9 +13,10 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'tasks', component: TasksComponent },
   { 
     path: 'profile', 
-    component: ProfileComponent,
+    component: ProfileComponent ,
     canActivate : [ AuthGuard]
   },
 ];

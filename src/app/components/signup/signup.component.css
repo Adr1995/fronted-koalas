@@ -16,9 +16,9 @@
     
       padding: 10px 0 24px 0;
       background-color: #fff;
-      border: none;
+      /* border: none;
       border-radius: 8px;
-      box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+      box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff; */
       margin: auto;
       padding: 20px 0 28px;
       width: 396px;
@@ -49,7 +49,7 @@
   }
 
   .botonRegistrarse {
-      background-color: #42b72a;
+      background-color: #8b00ff;
       border: none;
       border-radius: 6px;
       font-size: 20px;
@@ -62,7 +62,7 @@
     }
 
   .botonRegistrarse:hover {
-    background-color: #36A420;
+    background-color: #5d00aa;
   }
 
   .divEnlace {

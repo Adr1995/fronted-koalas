@@ -44,9 +44,10 @@ login(){
       localStorage.setItem('token', res.token); // esto se hace una vez que ha llegado el token, y lo que hace es guardarlo en el navegador
       // console.log(res) //para ver el token, esto no hay que dejarlo, es solo para verlo
       // this.logged = true;
-      localStorage.setItem('user', res.user);
-      this.router.navigateByUrl('/')
+      localStorage.setItem('user' , res.user._id )
+      this.router.navigateByUrl('/profile')
       this.toastr.success("Has iniciado sesión correctamente");
+      
     })
     .catch(err => {
       if (err.response.status === 404 || err.response.status === 401 ){

@@ -11,10 +11,23 @@ export class UserService {
 
   constructor() {}
 
-    public getUserInfo() {
+    public listUserInfo() {
       const token = localStorage.getItem('token');
-      return axios.get(`/api/user/` ,   ) //header
-      .then(result => result.data)
+      return axios.get(`/api/users` , { headers: { authorization: `Bearer ${token}` }} ) //header
+      .then(result => {
+        return result.data
+      })
+  }
+
+  public getUserProfile() {
+    const token = localStorage.getItem('token');
+    const userId : any = localStorage.getItem('user');
+    
+    return axios.get(`/api/users/${userId}/profile` , { headers: { authorization: `Bearer ${token}` }} ) //header
+    .then(result => {
+      console.log(result) 
+      return result.data
+    })
   }
     }
 
