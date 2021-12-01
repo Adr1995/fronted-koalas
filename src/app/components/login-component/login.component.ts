@@ -45,6 +45,8 @@ login(){
       // console.log(res) //para ver el token, esto no hay que dejarlo, es solo para verlo
       // this.logged = true;
       localStorage.setItem('user' , res.user._id )
+     // localStorage.setItem('profile' , res.user.profile.username )
+     
       this.router.navigateByUrl('/profile')
       this.toastr.success("Has iniciado sesión correctamente");
       

@@ -17,6 +17,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { PostComponent } from './components/post/post.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { TasksComponent } from './components/tasks/tasks.component';
     ModalComponent,
     ProfileComponent,
     TasksComponent,
+    PostComponent,
+    PostFormComponent,
   ],
   imports: [
     BrowserModule,

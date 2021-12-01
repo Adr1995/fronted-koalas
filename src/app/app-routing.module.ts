@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
 
 import { LoginComponent } from './components/login-component/login.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { PostComponent } from './components/post/post.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { TasksComponent } from './components/tasks/tasks.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'tasks', component: TasksComponent },
+  { path: 'postform', component: PostFormComponent },
+  { path: 'posts', component: PostComponent },
   { 
     path: 'profile', 
     component: ProfileComponent ,

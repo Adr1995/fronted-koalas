@@ -17,11 +17,17 @@ export class AuthService {
 
   public signup(body: any){
     console.log(body);
-
+    
     return axios.post(`/api/auth/register`, body)
       .then(result => result.data)
-  }
-
+      }
+ public createUserProfile(body: any){
+    console.log(body);
+        
+     return axios.post(`/api/profile/create`, body)
+     .then(result => result.data)
+      }
+     
   public loggedIn() {
     return !!localStorage.getItem('token'); // lo que hace es devolver true o false en caso de que tenga o no tenga token
   }

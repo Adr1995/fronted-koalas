@@ -23,7 +23,7 @@ export class UserService {
     const token = localStorage.getItem('token');
     const userId : any = localStorage.getItem('user');
     
-    return axios.get(`/api/users/${userId}/profile` , { headers: { authorization: `Bearer ${token}` }} ) //header
+    return axios.get(`/api/profile/${userId}/profile` , { headers: { authorization: `Bearer ${token}` }} ) //header
     .then(result => {
       console.log(result) 
       return result.data
