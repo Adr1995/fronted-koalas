@@ -6,12 +6,12 @@ import { Task } from '../models/user/Task.model';
   providedIn: 'root'
 })
 export class TaskService {
-
+  url: string = 'http://localhost:5000';
   constructor() { }
 
   public getTasks() {
     const token = localStorage.getItem('token')
-    return axios.get<any>(`/api/tasks/` , { headers : { "authorization" : `Bearer ${token}`  }}) //header
+    return axios.get<any>(`${this.url}/api/tasks/` , { headers : { "authorization" : `Bearer ${token}`  }}) //header
     .then(result => result.data)
 }
 }
