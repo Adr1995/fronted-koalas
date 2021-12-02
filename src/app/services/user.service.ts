@@ -36,8 +36,8 @@ export class UserService {
     
     return axios.get(`${this.url}/api/users/${userId}/profile` , { headers: { authorization: `Bearer ${token}` }} ) //header
     .then(result => {
-      
-      return result.data;
+      let profile =result.data
+      return profile.username;
     })
   }
     }

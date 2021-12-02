@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
   async loadUserProfile() {
     try {
       this.profile = await this.userService.getUserProfile();
-     console.log(this.profile);
+     localStorage.setItem('username', this.profile.username)
     } catch (error) {
       console.log(error);
       
