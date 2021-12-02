@@ -9,7 +9,8 @@ export class PostService {
   url: string = 'http://localhost:5000';
   constructor(private router : Router) { }
    public newPost(body: any){
-    return axios.post(`${this.url}/api/tasks/create`, body)
+    const token = localStorage.getItem('token');
+    return axios.post(`${this.url}/api/tasks/create`, body, { headers: { authorization: `Bearer ${token}` }})
       .then(result => result.data)
    }
    public deletePost(id:string){
