@@ -20,6 +20,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { PostComponent } from './components/post/post.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { ProfileCategoriesComponent } from './components/profile-categories/profile-categories.component';
+import { HobbiesComponent } from './components/hobbies/hobbies.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProfileCategoriesComponent } from './components/profile-categories/prof
     PostComponent,
     PostFormComponent,
     ProfileCategoriesComponent,
+    HobbiesComponent,
   ],
   imports: [
     BrowserModule,
