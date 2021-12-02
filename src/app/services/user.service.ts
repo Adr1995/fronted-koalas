@@ -25,8 +25,19 @@ export class UserService {
     
     return axios.get(`${this.url}/api/users/${userId}/profile` , { headers: { authorization: `Bearer ${token}` }} ) //header
     .then(result => {
-      console.log(result) 
-      return result.data
+     
+      return result.data;
+    })
+  }
+  
+  public getUserUsername() {
+    const token = localStorage.getItem('token');
+    const userId : any = localStorage.getItem('user');
+    
+    return axios.get(`${this.url}/api/users/${userId}/profile` , { headers: { authorization: `Bearer ${token}` }} ) //header
+    .then(result => {
+      
+      return result.data;
     })
   }
     }

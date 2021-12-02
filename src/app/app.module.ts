@@ -19,6 +19,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { PostComponent } from './components/post/post.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { ProfileCategoriesComponent } from './components/profile-categories/profile-categories.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PostFormComponent } from './components/post-form/post-form.component';
     TasksComponent,
     PostComponent,
     PostFormComponent,
+    ProfileCategoriesComponent,
   ],
   imports: [
     BrowserModule,

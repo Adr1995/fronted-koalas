@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   users : Users[] = [];
   profile : any;
-  myid = localStorage.getItem('user')!;
+  
   // logged : boolean = false
 
   constructor(

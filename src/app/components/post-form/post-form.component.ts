@@ -20,16 +20,18 @@ export class PostFormComponent implements OnInit {
   constructor(private servicePost: PostService, private toastr: ToastrService, private userService: UserService) { }
 
   ngOnInit(): void {
-   /* this.post.owner = this.getOwner().username*/
+    this.post.owner = this.getOwner()
+    console.log(this.post.owner)
   }
-  /*getOwner(){
-    let profile ={username: ''}
-    profile = this.userService.getUserProfile()
-    return profile.username
-  }*/
+  getOwner(){
+    let profile: any
+    profile = this.userService.getUserUsername()
+    return profile
+  }
   newPost(){
     this.servicePost.newPost(this.post).then(result =>{
-      this.servicePost.newPost(this.post);
+      console.log(this.post)
+      //this.servicePost.newPost(this.post);
       this.toastr.success("Has publicado correctamente");}
     ).catch(err => this.toastr.error("Fallo a la hora de publicar, todos los campos han de ser rellenados correctamente.", "Error!"))
   }
