@@ -6,25 +6,25 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  url: string = 'localhost:5000';
+  url: string = 'http://localhost:5000';
   constructor(private router: Router) { }
 
   public login(body: any) {
     console.log(body);
-    return axios.post(`/api/auth/login`, body)
+    return axios.post(`${this.url}/api/auth/login`, body)
       .then(result => result.data)
   }
 
   public signup(body: any){
     console.log(body);
     
-    return axios.post(`/api/auth/register`, body)
+    return axios.post(`${this.url}/api/auth/register`, body)
       .then(result => result.data)
       }
  public createUserProfile(body: any){
     console.log(body);
         
-     return axios.post(`/api/profile/create`, body)
+     return axios.post(`${this.url}/api/profile/create`, body)
      .then(result => result.data)
       }
      

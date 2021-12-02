@@ -6,6 +6,22 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class PostService {
-  url: string = 'localhost:5000';
-  constructor() { }
+  url: string = 'http://localhost:5000';
+  constructor(private router : Router) { }
+   public newPost(body: any){
+    return axios.post(`${this.url}/api/tasks/create`, body)
+      .then(result => result.data)
+   }
+   public deletePost(id:string){
+     return axios.delete(`${this.url}/api/tasks/delete/${id}`)
+     .then(result => result.data)}
+
+   public getPosts(userid:string){
+     return axios.get(`${this.url}/api/tasks/${userid}`)
+     .then(result => result.data)
+   }
+   public editPosts(id:string, body:any){
+    return axios.patch(`${this.url}/api/tasks/edit/${id}`, body)
+    .then(result => result.data)
+   }
 }

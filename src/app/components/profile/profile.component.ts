@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Users } from 'src/app/models/user/Users.model';
 import { UserService } from 'src/app/services/user.service';
@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   users : Users[] = [];
   profile : any;
+  myid = localStorage.getItem('user')!;
   // logged : boolean = false
 
   constructor(

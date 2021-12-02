@@ -1,27 +1,29 @@
-<!-- <form class="custom-form" method="post">
+ <form class="custom-form" method="post">
     <div>
         <div class="divInput">
             <input 
-            type="email" 
-            [(ngModel)]="" 
+            type="text" 
+            [(ngModel)]="post.title" 
             class="inputtext" 
-            name="email" 
-            id="email" 
-            data-testid="royal_email" 
-            placeholder="Correo electrónico" 
+            name="title" 
+            id="title" 
+            placeholder="Titulo del post" 
             autofocus="1" 
-            aria-label="Correo electrónico" 
+            aria-label="Titulo del post" 
             required="required"
             />
         </div>
 
         <div class="divInput">
             <input
-            type="password"
-            [(ngModel)]=""
+            type="text"
+            [(ngModel)]="post.text"
             class="inputtext"
-            name="password"
-            placeholder="Contraseña"
+            name="text"
+            placeholder="Texto del post"
             required="required"
             />
-        </div> -->
+       
+        <div class="divBoton">    
+            <button type="submit" class="botonLogin" (click)="newPost()" data-dismiss="modal" aria-label="Close">Entrar</button>
+        </div>
