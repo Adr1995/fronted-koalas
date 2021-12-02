@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Users } from 'src/app/models/user/Users.model';
 import { UserService } from 'src/app/services/user.service';
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
+    private router: Router
   ) { 
 
     // console.log(this.user);
@@ -74,5 +76,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ post(){
+  this.router.navigateByUrl('/postform');
+ }
 }
