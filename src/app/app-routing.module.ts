@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { HobbyFormComponent } from './components/hobby-form/hobby-form.component';
+import { AllpostComponent } from './components/allpost/allpost.component';
 import { LandingComponent } from './components/landing/landing.component';
 
 import { LoginComponent } from './components/login-component/login.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'postform', component: PostFormComponent },
   { path: 'posts', component: PostComponent },
   { path: 'hobbies', component: HobbyFormComponent },
+  { path: 'allposts', component: AllpostComponent },
   { 
     path: 'profile', 
     component: ProfileComponent ,

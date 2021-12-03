@@ -23,6 +23,7 @@ import { ProfileCategoriesComponent } from './components/profile-categories/prof
 import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { HobbyFormComponent } from './components/hobby-form/hobby-form.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { HobbyFormComponent } from './components/hobby-form/hobby-form.component
     ProfileCategoriesComponent,
     HobbiesComponent,
     HobbyFormComponent,
+   
   ],
   imports: [
     BrowserModule,

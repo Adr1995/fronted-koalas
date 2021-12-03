@@ -20,6 +20,7 @@ export class PostService {
 
    public getPosts(userid:string){
     const token = localStorage.getItem('token');
+    
      return axios.get(`${this.url}/api/tasks/${userid}`, { headers: { authorization: `Bearer ${token}` }})
      .then(result => result.data)
    }
@@ -30,7 +31,26 @@ export class PostService {
    }
    public likesPosts(id:string, body:any){
     const token = localStorage.getItem('token');
-    return axios.patch(`${this.url}/api/tasks/edit/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
+    return axios.post(`${this.url}/api/tasks/like/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
     .then(result => result.data)
    }
+   public deletelike(idtasks:any, body: any){
+    const token = localStorage.getItem('token');
+    
+    return fetch(`${this.url}/api/tasks/dislike/${idtasks}`, {
+      
+      method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `JWT ${token}`
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(body) // body data type must match "Content-Type" header
+    });
+  }
 }
