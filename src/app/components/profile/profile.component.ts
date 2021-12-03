@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Users } from 'src/app/models/user/Users.model';
 import { UserService } from 'src/app/services/user.service';
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
+    private router: Router
   ) { 
 
     // console.log(this.user);
@@ -55,6 +57,7 @@ export class ProfileComponent implements OnInit {
     try {
       this.profile = await this.userService.getUserProfile();
      localStorage.setItem('username', this.profile.username)
+     localStorage.setItem('profileId', this.profile._id)
     } catch (error) {
       console.log(error);
       
@@ -74,5 +77,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ post(){
+  this.router.navigateByUrl('/postform');
+ }
+ hobby(){
+  this.router.navigateByUrl('/hobbies');
+ }
 }

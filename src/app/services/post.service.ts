@@ -13,7 +13,7 @@ export class PostService {
     return axios.post(`${this.url}/api/tasks/create`, body, { headers: { authorization: `Bearer ${token}` }})
       .then(result => result.data)
    }
-   public deletePost(id:string){
+   public deletePost(id:any){
     const token = localStorage.getItem('token');
      return axios.delete(`${this.url}/api/tasks/delete/${id}`, { headers: { authorization: `Bearer ${token}` }})
      .then(result => result.data)}
@@ -25,7 +25,12 @@ export class PostService {
    }
    public editPosts(id:string, body:any){
     const token = localStorage.getItem('token');
-    return axios.patch(`${this.url}/api/tasks/edit/${id}`, body , { headers: { authorization: `Bearer ${token}` }})
+    return axios.patch(`${this.url}/api/tasks/edit/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
+    .then(result => result.data)
+   }
+   public likesPosts(id:string, body:any){
+    const token = localStorage.getItem('token');
+    return axios.patch(`${this.url}/api/tasks/edit/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
     .then(result => result.data)
    }
 }

@@ -1,0 +1,19 @@
+<form class="custom-form" method="post">
+    <div>
+        <div class="divInput">
+            <input 
+            type="text" 
+            [(ngModel)]="hobbies.hobby" 
+            class="inputtext" 
+            name="title" 
+            id="title" 
+            placeholder="Titulo del hobby" 
+            autofocus="1" 
+            aria-label="Titulo del hobby" 
+            required="required"
+            />
+        </div>
+       
+        <div class="divBoton">    
+            <button type="submit" class="botonLogin" (click)="newHobby()" data-dismiss="modal" aria-label="Close">Añadir</button>
+        </div>

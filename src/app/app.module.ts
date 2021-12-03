@@ -21,6 +21,7 @@ import { PostComponent } from './components/post/post.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { ProfileCategoriesComponent } from './components/profile-categories/profile-categories.component';
 import { HobbiesComponent } from './components/hobbies/hobbies.component';
+import { HobbyFormComponent } from './components/hobby-form/hobby-form.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HobbiesComponent } from './components/hobbies/hobbies.component';
     PostFormComponent,
     ProfileCategoriesComponent,
     HobbiesComponent,
+    HobbyFormComponent,
   ],
   imports: [
     BrowserModule,

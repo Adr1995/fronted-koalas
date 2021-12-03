@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +18,8 @@ export class PostFormComponent implements OnInit {
     hobbies:[],
     likes:[]
   }
-  constructor(private servicePost: PostService, private toastr: ToastrService, private userService: UserService) { }
+  
+  constructor(private servicePost: PostService, private toastr: ToastrService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     
@@ -25,8 +27,9 @@ export class PostFormComponent implements OnInit {
  
   newPost(){
     this.servicePost.newPost(this.post).then(result =>{
-      this.servicePost.newPost(this.post);
-      this.toastr.success("Has publicado correctamente");}
+        this.toastr.success("Has publicado correctamente");
+        this.router.navigateByUrl('/posts');
+     }
     ).catch(err => this.toastr.error("Fallo a la hora de publicar, todos los campos han de ser rellenados correctamente.", "Error!"))
   }
 }

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileCategoriesComponent implements OnInit {
   myid = localStorage.getItem('user')!;
+  profileId = localStorage.getItem('profileId')!;
   constructor() { }
 
   ngOnInit(): void {

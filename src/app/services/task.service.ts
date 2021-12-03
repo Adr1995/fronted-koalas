@@ -12,7 +12,7 @@ export class TaskService {
   public getTasks(id?:string) {
     const token = localStorage.getItem('token');
     
-    return axios.get<any>(`${this.url}/api/tasks/${id}` , { headers : { "authorization" : `Bearer ${token}`  }}) //header
+    return axios.get<any>(`${this.url}/api/tasks/${id}` , { headers : { authorization : `Bearer ${token}`  }}) //header
     .then(result => result.data)
 }
 }

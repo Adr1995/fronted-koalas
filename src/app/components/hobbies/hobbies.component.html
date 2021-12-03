@@ -1,1 +1,7 @@
-<p>hobbies works!</p>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let hobbie of hobbies">
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{hobbie}} <button (click)="delete(hobbie)">X</button></div>
+          </div>
+    </li>
+</ul>
