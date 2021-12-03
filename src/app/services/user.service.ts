@@ -7,7 +7,7 @@ import axios from 'axios';
 })
 export class UserService {
   // url: string = 'https://koalagram-back-z8nb6iyiq-ana-valdemoro.vercel.app';
-  url: string = 'http://localhost:5000';
+  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
 
   constructor() {}
  

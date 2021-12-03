@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class PostService {
-  url: string = 'http://localhost:5000';
+  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
   constructor(private router : Router) { }
    public newPost(body: any){
     const token = localStorage.getItem('token');
@@ -31,13 +31,13 @@ export class PostService {
    }
    public likesPosts(id:string, body:any){
     const token = localStorage.getItem('token');
-    return axios.post(`${this.url}/api/tasks/like/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
+    return axios.post(`${this.url}/api/tasks/${id}/likes`, body, { headers: { authorization: `Bearer ${token}` }})
     .then(result => result.data)
    }
    public deletelike(idtasks:any, body: any){
     const token = localStorage.getItem('token');
     
-    return fetch(`${this.url}/api/tasks/dislike/${idtasks}`, {
+    return fetch(`${this.url}/api/tasks/${idtasks}/likes`, {
       
       method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
