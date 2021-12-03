@@ -24,7 +24,7 @@ export class HobbyFormComponent implements OnInit {
     this.serviceHobbies.newHobby(this.hobbies).then(result =>{
       // console.log("hobbyForm : --- ",this.hobbies);
       this.toastr.success("Has añadido un hobby correctamente");
-      this.router.navigateByUrl('/hobbies');
+      this.router.navigateByUrl('/profile');
    }
   ).catch(err => this.toastr.error("Fallo al añadir un hobby, todos los campos han de ser rellenados correctamente.", "Error!"))
 }
