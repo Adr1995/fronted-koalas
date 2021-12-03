@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AllpostComponent } from './components/allpost/allpost.component';
 import { LandingComponent } from './components/landing/landing.component';
 
 import { LoginComponent } from './components/login-component/login.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent },
   { path: 'postform', component: PostFormComponent },
   { path: 'posts', component: PostComponent },
+  { path: 'allposts', component: AllpostComponent },
   { 
     path: 'profile', 
     component: ProfileComponent ,

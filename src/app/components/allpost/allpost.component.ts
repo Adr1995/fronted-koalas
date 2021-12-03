@@ -1,14 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: 'app-allpost',
+  templateUrl: './allpost.component.html',
+  styleUrls: ['./allpost.component.css']
 })
-export class PostComponent implements OnInit {
+export class AllpostComponent implements OnInit {
 
   tasks: any = [];
   id = localStorage.getItem('user')!;
@@ -43,7 +43,7 @@ export class PostComponent implements OnInit {
           
    }
   loadData() {
-       this.tasksService.getTasks(this.id)
+       this.tasksService.getTasks()
       .then(resultados => {
         this.tasks = resultados;
         console.log(this.tasks);
@@ -54,3 +54,4 @@ export class PostComponent implements OnInit {
   }
 
 }
+

@@ -21,6 +21,7 @@ import { PostComponent } from './components/post/post.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { ProfileCategoriesComponent } from './components/profile-categories/profile-categories.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { ProfileCategoriesComponent } from './components/profile-categories/prof
     PostComponent,
     PostFormComponent,
     ProfileCategoriesComponent,
+   
   ],
   imports: [
     BrowserModule,
