@@ -6,7 +6,7 @@ import { Task } from '../models/user/Task.model';
   providedIn: 'root'
 })
 export class TaskService {
-  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
+  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app';
   constructor() { }
 
   public getTasks(id?:string) {
