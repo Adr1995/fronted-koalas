@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class PostService {
-  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
+  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app';
   constructor(private router : Router) { }
    public newPost(body: any){
     const token = localStorage.getItem('token');
