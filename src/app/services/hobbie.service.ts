@@ -5,7 +5,7 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class HobbieService {
-  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
+  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app';
   constructor() { }
 
   public getHobby(profileId:string){
