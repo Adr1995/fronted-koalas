@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 400px;
+    max-height: 102px;
+    padding: 10px 0 16px 10px;
+    margin: 3px 0 ;
+  }
+  
+  .example-header-image {
+    background-image: url('https://img2.freepng.es/20180327/zoe/kisspng-koala-computer-icons-clip-art-koala-5abb0823d88b90.025250621522206755887.jpg');
+    background-size: cover;
+  }
+
+ 
