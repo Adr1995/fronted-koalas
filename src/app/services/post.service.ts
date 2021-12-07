@@ -1,43 +1,44 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
+
   constructor(private router : Router) { }
    public newPost(body: any){
     const token = localStorage.getItem('token');
-    return axios.post(`${this.url}/api/tasks/create`, body, { headers: { authorization: `Bearer ${token}` }})
+    return axios.post(`${environment.API_URL}/api/tasks/create`, body, { headers: { authorization: `Bearer ${token}` }})
       .then(result => result.data)
    }
    public deletePost(id:any){
     const token = localStorage.getItem('token');
-     return axios.delete(`${this.url}/api/tasks/delete/${id}`, { headers: { authorization: `Bearer ${token}` }})
+     return axios.delete(`${environment.API_URL}/api/tasks/delete/${id}`, { headers: { authorization: `Bearer ${token}` }})
      .then(result => result.data)}
 
    public getPosts(userid:string){
     const token = localStorage.getItem('token');
     
-     return axios.get(`${this.url}/api/tasks/${userid}`, { headers: { authorization: `Bearer ${token}` }})
+     return axios.get(`${environment.API_URL}/api/tasks/${userid}`, { headers: { authorization: `Bearer ${token}` }})
      .then(result => result.data)
    }
    public editPosts(id:string, body:any){
     const token = localStorage.getItem('token');
-    return axios.patch(`${this.url}/api/tasks/edit/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
+    return axios.patch(`${environment.API_URL}/api/tasks/edit/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
     .then(result => result.data)
    }
    public likesPosts(id:string, body:any){
     const token = localStorage.getItem('token');
-    return axios.post(`${this.url}/api/tasks/${id}/likes`, body, { headers: { authorization: `Bearer ${token}` }})
+    return axios.post(`${environment.API_URL}/api/tasks/${id}/likes`, body, { headers: { authorization: `Bearer ${token}` }})
     .then(result => result.data)
    }
    public deletelike(idtasks:any, body: any){
     const token = localStorage.getItem('token');
     
-    return fetch(`${this.url}/api/tasks/${idtasks}/likes`, {
+    return fetch(`${environment.API_URL}/api/tasks/${idtasks}/likes`, {
       
       method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin

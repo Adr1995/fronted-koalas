@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
   constructor(private router: Router) { }
 
   public login(body: any) {
     console.log(body);
-    return axios.post(`${this.url}/api/auth/login`, body)
+    return axios.post(`${environment.API_URL}/api/auth/login`, body)
       .then(result => result.data)
   }
 
   public signup(body: any){
     console.log(body);
     
-    return axios.post(`${this.url}/api/auth/register`, body)
+    return axios.post(`${environment.API_URL}/api/auth/register`, body)
       .then(result => result.data)
       }
  public createUserProfile(body: any){
     console.log(body);
         
-     return axios.post(`${this.url}/api/profile/create`, body)
+     return axios.post(`${environment.API_URL}/api/profile/create`, body)
      .then(result => result.data)
       }
      

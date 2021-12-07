@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HobbieService {
-  url: string = 'https://koalagram-back-nk043ak09-ana-valdemoro.vercel.app/';
   constructor() { }
 
   public getHobby(profileId:string){
    const token = localStorage.getItem('token');
-    return axios.get(`${this.url}/api/profiles/${profileId}/hobbies`, { headers: { authorization: `Bearer ${token}` }})
+    return axios.get(`${environment.API_URL}/api/profiles/${profileId}/hobbies`, { headers: { authorization: `Bearer ${token}` }})
     .then(result => result.data)
   }
 
 public newHobby(body: any){
   const token = localStorage.getItem('token');
   const profileId : any = localStorage.getItem('profileId');
-  return axios.post(`${this.url}/api/profiles/${profileId}/hobbies`, body, { headers: { authorization: `Bearer ${token}` }})
+  return axios.post(`${environment.API_URL}/api/profiles/${profileId}/hobbies`, body, { headers: { authorization: `Bearer ${token}` }})
     .then(result => result.data)
  }
 
@@ -31,7 +31,7 @@ public newHobby(body: any){
 public deleteHobby(body: any){
   const token = localStorage.getItem('token');
   const profileId : any = localStorage.getItem('profileId');
-  return fetch(`${this.url}/api/profiles/${profileId}/hobbies`, {
+  return fetch(`${environment.API_URL}/api/profiles/${profileId}/hobbies`, {
     
     method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
@@ -51,7 +51,7 @@ public deleteHobby(body: any){
 
  public editHobby(id:string, body:any){
   const token = localStorage.getItem('token');
-  return axios.patch(`${this.url}/api/profiles/edit/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
+  return axios.patch(`${environment.API_URL}/api/profiles/edit/${id}`, body, { headers: { authorization: `Bearer ${token}` }})
   .then(result => result.data)
  }
 }
