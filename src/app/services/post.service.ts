@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PostService {
-
   constructor(private router : Router) { }
    public newPost(body: any){
     const token = localStorage.getItem('token');

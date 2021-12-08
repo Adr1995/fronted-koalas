@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
-
   constructor() {}
  
     public listUserInfo() {
