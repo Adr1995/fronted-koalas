@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 /** 
@@ -71,7 +72,8 @@ import { HobbyFormComponent } from './components/hobby-form/hobby-form.component
     MatCardModule,
     MatSliderModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    NgxPaginationModule
+    NgxPaginationModule,
+    FontAwesomeModule,
   ],
   providers: [
     AuthGuard
