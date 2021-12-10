@@ -12,17 +12,6 @@
 <div class="container">
     <div class="row">
       <div class="col-4" *ngFor="let task of tasks | paginate: { itemsPerPage: 9, currentPage: page }">
-          <!-- <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-              <div class="card-header">{{task.title}}</div>
-              <div class="card-body">
-                <p class="card-text">{{task.text}}</p>
-              </div>
-              
-              <div class="card-body">
-                  <button (click)="likes(task._id)" *ngIf="like">Like</button> <button (click)="dislikes(task._id) " *ngIf="!like">Like</button>  <p>Likes:{{task.likes.length}}</p> <button (click)="delete(task._id)">Borrar</button>
-                </div>
-            </div> -->
-
             <mat-card class="example-card overflow-hidden">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
