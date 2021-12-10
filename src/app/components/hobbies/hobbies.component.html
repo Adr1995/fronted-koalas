@@ -1,7 +1,32 @@
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let hobbie of hobbies">
-        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-            <div class="card-header">{{hobbie}} <button (click)="delete(hobbie)">X</button></div>
+<!-- <ul class="list-group">
+  <li class="list-group-item" *ngFor="let hobbie of hobbies">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem">
+      <div class="card-header">
+        {{ hobbie }} <button (click)="delete(hobbie)">X</button>
+      </div>
+    </div>
+  </li>
+</ul> -->
+
+<div class="container">
+  <div class="row">
+    <div
+      class="col-4 mb-3"
+      *ngFor="
+        let hobbie of hobbies | paginate: { itemsPerPage: 9, currentPage: page }
+      "
+    >
+      <mat-card class="example-card overflow-hidden">
+        <mat-card-content class="w-11/12">
+          <div class="w-11/12 truncate">
+            <b>{{ hobbie }}</b> <button class="absolute right-2" (click)="delete(hobbie)">X</button>
           </div>
-    </li>
-</ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<pagination-controls
+  (pageChange)="page = $event"
+  class="flex justify-center mt-3"
+></pagination-controls>

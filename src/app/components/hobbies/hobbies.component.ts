@@ -9,6 +9,7 @@ import { HobbieService } from 'src/app/services/hobbie.service';
 export class HobbiesComponent implements OnInit {
 
   hobbies: any = [];
+  public page!: number;
   @Input() idProfile = ``;
 
   constructor( private hobbieService: HobbieService) { }

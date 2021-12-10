@@ -40,6 +40,9 @@ import { PostFormComponent } from './components/post-form/post-form.component';
 import { ProfileCategoriesComponent } from './components/profile-categories/profile-categories.component';
 import { HobbiesComponent } from './components/hobbies/hobbies.component';
 import { HobbyFormComponent } from './components/hobby-form/hobby-form.component';
+import { HomeComponent } from './components/home/home.component';
+import { SearchComponent } from './components/search/search.component';
+import { AnadirComponent } from './components/anadir/anadir.component';
 
 
 @NgModule({
@@ -59,6 +62,9 @@ import { HobbyFormComponent } from './components/hobby-form/hobby-form.component
     ProfileCategoriesComponent,
     HobbiesComponent,
     HobbyFormComponent,
+    HomeComponent,
+    SearchComponent,
+    AnadirComponent,
 
    
   ],
