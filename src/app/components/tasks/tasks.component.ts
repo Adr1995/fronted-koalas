@@ -9,6 +9,7 @@ import { TaskService } from 'src/app/services/task.service';
 export class TasksComponent implements OnInit{
  
   tasks: any = [];
+  public page!: number;
   @Input() id = ``;
 
   constructor( private tasksService: TaskService) { }

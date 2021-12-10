@@ -10,6 +10,8 @@ import { AuthGuard } from './guards/auth.guard';
  */
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 /** 
  *  Modulos material
@@ -56,6 +58,7 @@ import { HobbyFormComponent } from './components/hobby-form/hobby-form.component
     ProfileCategoriesComponent,
     HobbiesComponent,
     HobbyFormComponent,
+
    
   ],
   imports: [
@@ -68,6 +71,7 @@ import { HobbyFormComponent } from './components/hobby-form/hobby-form.component
     MatCardModule,
     MatSliderModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    NgxPaginationModule
   ],
   providers: [
     AuthGuard
