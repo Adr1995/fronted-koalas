@@ -46,6 +46,7 @@ html,body {
   }
   
   .left {
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,6 +147,7 @@ html,body {
   .social i:nth-child(4)  { color: #36465d; }
   
   .right {
+    min-height: 500px;
     padding: 0 25px 0 25px !important;
   }
   

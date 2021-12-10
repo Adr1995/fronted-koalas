@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Users } from 'src/app/models/user/Users.model';
+import { TaskService } from 'src/app/services/task.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,45 +14,19 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   users : Users[] = [];
   profile : any;
-  
-  // logged : boolean = false
+  tasks: any = 0;
+  id = localStorage.getItem('user')!;
 
   constructor(
     private userService: UserService,
+    private tasksService: TaskService,
     private toastr: ToastrService,
     private router: Router
   ) { 
-
-    // console.log(this.user);
-    // this.loadData();
-    // if ( localStorage.getItem('user')){
-    //   this.currentUser = JSON.parse(localStorage.getItem('user') + "")
-    // }else{
-
-    //   this.authService.getCurrentUser()
-    //   .then(user => {
-    //     this.currentUser = user;
-    //   })
-    // }
-    
-    // this.loadData();
+    this.loadData();
     this.loadUserProfile();
-    
-    if(localStorage.getItem('token')){
-      // this.logged = true;
-      // console.log("tengo un token")
-    //   this.userService.listUserInfo()
-    //     .then(resultados => {
-    //       this.users = resultados;
-    //       // console.log("users: " +  JSON.stringify(this.users))
-    //     })
-    //     .catch(err => {
-    //       this.toastr.error('No se ha podido cargar el usuario', err)
-    //     })
-    }
-
-    console.log("Current user: " + this.currentUser);
   }
+  ngOnInit(): void {}
 
   async loadUserProfile() {
     try {
@@ -66,17 +41,15 @@ export class ProfileComponent implements OnInit {
   }
 
   loadData() {
-    this.userService.listUserInfo()
-      .then(resultados => {
-        this.users = resultados;
-      })
-      .catch(err => {
-        this.toastr.error('No se ha podido cargar los datos de su usuario', err)
-      })
-  }
+    this.tasksService.getTasks(this.id)
+   .then(resultados => {
+     this.tasks = resultados.length;
+   })
+   .catch(err => {
+     console.log("No se han podido cargar las publicaciones")
+   })
+}
 
-  ngOnInit(): void {
-  }
  post(){
   this.router.navigateByUrl('/postform');
  }
