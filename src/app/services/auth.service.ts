@@ -11,7 +11,7 @@ export class AuthService {
 
   public login(body: any) {
     console.log(body);
-    return axios.post(`${environment.API_URL}api/auth/login`, body)
+    return axios.post(`${environment.API_URL}/api/auth/login`, body)
       .then(result => result.data)
   }
 
