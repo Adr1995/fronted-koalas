@@ -10,8 +10,10 @@ import { AuthGuard } from './guards/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+// import { HttpClientModule } from '@angular/common/http';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 
 
 /** 
@@ -48,6 +50,7 @@ import { SearchComponent } from './components/search/search.component';
 import { AnadirComponent } from './components/anadir/anadir.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { PostItemComponent } from './components/post-item/post-item.component';
 
 
 @NgModule({
@@ -72,6 +75,7 @@ import { SearchPipe } from './pipes/search.pipe';
     AnadirComponent,
     SearchBarComponent,
     SearchPipe,
+    PostItemComponent,
     
     
   ],
@@ -79,7 +83,7 @@ import { SearchPipe } from './pipes/search.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    // HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatCardModule,
@@ -90,12 +94,17 @@ import { SearchPipe } from './pipes/search.pipe';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    //HttpClientModule,
     
   ],
   providers: [
     AuthGuard
   ],
   bootstrap: [AppComponent]
+  
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(library : FaIconLibrary){
+    library.addIconPacks(fas, far);
+  }
+}

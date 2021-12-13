@@ -2,6 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { TaskService } from 'src/app/services/task.service';
+import { faHeart, IconPack } from '@fortawesome/free-solid-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 @Component({
   selector: 'app-post',
@@ -13,6 +18,9 @@ export class PostComponent implements OnInit {
   tasks: any = [];
   id = localStorage.getItem('user')!;
   like= true;
+  faHeart = faHeart;
+  fas : IconPack = fas;
+  toggleLike: any = ['far', 'heart'];
 
 
   constructor( private tasksService: TaskService, private servicePost: PostService, private router: Router) { }

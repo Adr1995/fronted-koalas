@@ -1,14 +1,39 @@
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let task of tasks">
-        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-            <div class="card-header">{{task.title}}</div>
-            <div class="card-body">
-              <p class="card-text">{{task.text}}</p>
-            </div>
-            
-            <div class="card-body">
-                <button (click)="likes(task._id)" *ngIf="like">Like</button> <button (click)="dislikes(task._id) " *ngIf="!like">Like</button>  <p>Likes:{{task.likes.length}}</p> <button (click)="delete(task._id)">Borrar</button>
+<div class="container">
+  <div class="row">
+    <div class="col-4" *ngFor="let task of tasks">
+          <mat-card class="example-card overflow-hidden">
+            <mat-card-header>
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            </mat-card-header>
+            <mat-card-content class="w-11/12">
+              <p class="w-11/12 break-words"><b>{{task.title}}</b></p>
+              <p class="w-11/12 break-words">
+                {{task.text}}
+              </p>
+            </mat-card-content>
+            <mat-card-content>
+              <div class="flex justify-between ">
+                
+                <!-- Este es fas fa heart -->
+                <fa-icon [icon]="toggleLike" size="lg"></fa-icon>
+                
+                <button (click)="likes(task._id)" *ngIf="like">
+                  like
+                </button> 
+                <button (click)="dislikes(task._id) " *ngIf="!like">
+                  dislike
+                </button>  
+                <p>{{task.likes.length}} Likes</p> 
+                <button (click)="delete(task._id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Borrar</button>
               </div>
-          </div>
-    </li>
-</ul>
+              <div class="flex px-6 py-4 justify-between">
+                <div class="flex">
+                  
+                </div>
+              </div>
+            </mat-card-content>
+
+          </mat-card>
+    </div>
+  </div>
+</div>
