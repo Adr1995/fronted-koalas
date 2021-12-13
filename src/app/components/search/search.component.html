@@ -1,12 +1,62 @@
-<div class="flex items-center justify-center w-screen h-screen bg-gray-800">
-    <form method="GET">
-      <div class="relative text-gray-600 focus-within:text-gray-400">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-          <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          </button>
-        </span>
-        <input type="search" name="q" class="py-2 text-sm text-white bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder="Search..." autocomplete="off">
+<search-bar (search)="handleSearch($event)"></search-bar>
+
+<div class="container">
+  <ul class="divide-y-2 divide-gray-100">
+    <li
+      *ngFor="let user of users | search: filtro_valor"
+      class="p-3 hover:bg-gray-100"
+      (click)="showUserProfile(user.profile_id._id)"
+    >
+      <button class="cursor-pointer block">
+        {{ user.profile_id.username }}
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div class="container" >
+  <header>
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </header>
+  <div class="main">
+    <div class="row">
+      <div class="left col-lg-4" *ngIf="profile">
+        <div class="photo-left">
+          <img class="photo" src="https://img2.freepng.es/20180327/zoe/kisspng-koala-computer-icons-clip-art-koala-5abb0823d88b90.025250621522206755887.jpg"/>
+          <div class="active"></div>
+        </div>
+        <h4 class="name"></h4>
+        <p class="info">{{profile.username}} </p>
+        <!-- <p class="info">email</p> -->
+        <div class="stats row">
+          <div class="stat col-xs-4">
+            <p class="number-stat my-3">0</p>
+            <p class="desc-stat">Seguidores</p>
+          </div>
+          <div class="stat col-xs-4 mx-3">
+            <p class="number-stat my-3">0</p>
+            <p class="desc-stat">Seguidos</p>
+          </div>
+          <div class="stat col-xs-4">
+            <p class="number-stat my-3">{{tasks}}</p>
+            <p class="desc-stat">Publicaciones</p>
+          </div>
+  
+        </div>
+        <p class="desc">Hola! Esta es la descripción de mi perfil de koalagram.</p>
+        <div class="social">
+          <i class="fa fa-facebook-square" aria-hidden="true"></i>
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+          <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+          <i class="fa fa-tumblr-square" aria-hidden="true"></i>
+        </div>
       </div>
-    </form>
+      <div class="right col-lg-8">
+        <app-profile-categories></app-profile-categories>
+      </div>
   </div>
+</div>
+
+
+
+

@@ -28,6 +28,16 @@ export class UserService {
       return result.data;
     })
   }
+
+  public showUserProfile(userId : any) {
+    const token = localStorage.getItem('token');
+    
+    return axios.get(`${environment.API_URL}/api/users/${userId}/profile` , { headers: { authorization: `Bearer ${token}` }} ) //header
+    .then(result => {
+     
+      return result.data;
+    }).catch(err => console.log("no va"))
+  }
   
   public getUserUsername() {
     const token = localStorage.getItem('token');
