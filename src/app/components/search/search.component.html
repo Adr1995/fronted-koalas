@@ -5,7 +5,7 @@
     <li
       *ngFor="let user of users | search: filtro_valor"
       class="p-3 hover:bg-gray-100"
-      (click)="showUserProfile(user.profile_id._id)"
+      (click)="showUserProfile(user._id)"
     >
       <button class="cursor-pointer block">
         {{ user.profile_id.username }}
