@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -11,12 +11,10 @@ export class TasksComponent implements OnInit{
   tasks: any = [];
   public page!: number;
   @Input() id = ``;
-  @Output() publicaciones = new EventEmitter();
 
   constructor( public tasksService: TaskService) { }
   ngOnInit(): void {
-    this.loadData(); 
-    this.onPropagar;
+    this.loadData();
   }
 
   loadData() {
@@ -29,8 +27,5 @@ export class TasksComponent implements OnInit{
       })
   }
 
-  onPropagar(){
-    this.publicaciones.emit(this.tasks);
-  }
 
 }

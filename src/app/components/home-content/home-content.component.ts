@@ -12,7 +12,7 @@ export class HomeContentComponent implements OnInit {
  @Input() users : any = [];
 
   constructor() { 
-    console.log("usuarios hijo",this.users)
+    // console.log("usuarios hijo",this.users)
   }
 
   ngOnInit(): void {

@@ -29,4 +29,5 @@
 <pagination-controls
   (pageChange)="page = $event"
   class="flex justify-center mt-3"
+  *ngIf="hobbies.length>9"
 ></pagination-controls>
