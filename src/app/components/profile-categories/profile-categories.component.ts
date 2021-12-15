@@ -8,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileCategoriesComponent implements OnInit {
   myid = localStorage.getItem('user')!;
   profileId = localStorage.getItem('profileId')!;
+  tasks : any[] = []
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+  
+  tareas(tareas: any[]) {
+    this.tasks = tareas;
   }
 
 }

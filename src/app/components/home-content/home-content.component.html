@@ -1,0 +1,17 @@
+<div class="container" *ngFor="let user of users" class="border-b-2 border-indigo-200 mb-3">
+    <div class="row">
+        <div class="col-3">
+            <div class="flex flex-col gap-1 text-center">
+                <a class="block mx-auto bg-center bg-no-repeat bg-cover w-20 h-20 rounded-full border border-gray-400 shadow-lg" href="" style="background-image: url('https://img2.freepng.es/20180327/zoe/kisspng-koala-computer-icons-clip-art-koala-5abb0823d88b90.025250621522206755887.jpg')"></a>
+                <p class="font-serif font-semibold">{{user.profile_id.username}}</p>
+            </div>
+        </div>
+        <div class="col-9">
+            <mat-tab-group>
+                <mat-tab label="Publicaciones"> 
+                    <app-tasks [id]="user._id"></app-tasks>
+                </mat-tab>
+              </mat-tab-group>
+        </div>
+    </div>
+</div>

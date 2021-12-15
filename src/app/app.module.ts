@@ -10,8 +10,10 @@ import { AuthGuard } from './guards/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+// import { HttpClientModule } from '@angular/common/http';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 
 
 /** 
@@ -50,6 +52,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SearchPipe } from './pipes/search.pipe';
 import { FollowAndUnfollowComponent } from './components/follow-and-unfollow/follow-and-unfollow.component';
 import { HomeContentComponent } from './components/home-content/home-content.component';
+import { PostItemComponent } from './components/post-item/post-item.component';
 
 
 @NgModule({
@@ -76,6 +79,7 @@ import { HomeContentComponent } from './components/home-content/home-content.com
     SearchPipe,
     FollowAndUnfollowComponent,
     HomeContentComponent,
+    PostItemComponent,
     
     
   ],
@@ -93,12 +97,17 @@ import { HomeContentComponent } from './components/home-content/home-content.com
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    //HttpClientModule,
     
   ],
   providers: [
     AuthGuard
   ],
   bootstrap: [AppComponent]
+  
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(library : FaIconLibrary){
+    library.addIconPacks(fas, far);
+  }
+}

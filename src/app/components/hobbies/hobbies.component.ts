@@ -10,7 +10,7 @@ export class HobbiesComponent implements OnInit {
 
   hobbies: any = [];
   public page!: number;
-  @Input() idProfile = ``;
+  @Input() idProfile : any = ``;
 
   constructor( private hobbieService: HobbieService) { }
   ngOnInit(): void { this.loadData(); }

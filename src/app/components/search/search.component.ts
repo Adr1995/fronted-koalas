@@ -1,5 +1,5 @@
 // import { HttpClient } from '@angular/common/http';
-import { Component, OnInit  } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit  } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
@@ -15,11 +15,20 @@ export class SearchComponent implements OnInit {
   filtro_valor = '';
   profile : any;
   tasks: any = 0;
-  id : any = 0;
-  constructor( private userService: UserService, private router: Router, private tasksService: TaskService) {
-    // this.loadData();
-    
-  }
+  userId : any = 0;
+  myId : any = localStorage.getItem('user');
+  profileId : any =0;
+  myProfileId : any = localStorage.getItem('profileId');
+  rerender = false;
+  followUser : any = true;
+  constructor
+    ( 
+      private userService: UserService, 
+      private router: Router, 
+      private tasksService: TaskService, 
+      private cdRef:ChangeDetectorRef
+    ) 
+    {}
 
   ngOnInit(): void {
     this.userService.listUserInfo()
@@ -29,42 +38,69 @@ export class SearchComponent implements OnInit {
     }, 300);
   }
 
-   showUserProfile(profileId : any) {
-    // let userId : string;
-        this.userService.showUserProfile(profileId)
-        .then(res => {return console.log(res)})
-        
-      //  localStorage.setItem('username', this.profile.username)
-      //  localStorage.setItem('profileId', this.profile._id)
-      .catch (error => {
-        console.log(error)
-      })  
+   async showUserProfile(id : any) {
+       this.profile = await this.userService.showUserProfile(id) 
+       localStorage.setItem('username2', this.profile.username)
+       localStorage.setItem('profileId2', this.profile._id)
+       localStorage.setItem('userId2', id)
+       this.userId = id;
+       this.profileId = localStorage.getItem('profileId2')
+       this.loadData();
+       this.doRerender();
   }
 
-//   async loadUserProfile(profileId : any, username: any) {
-//     try {
-//       this.profile = await this.userService.getUserProfile();
-//      localStorage.setItem('username2', username)
-//      localStorage.setItem('profileId2', profileId)
-//      this.id = localStorage.getItem('profileId2');
-//      window.location.reload();
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
+  loadData() {
+    this.tasksService.getTasks(this.userId)
+   .then(resultados => {
+     this.tasks = resultados.length;
+   })
+   .catch(err => {
+     console.log("No se han podido cargar las publicaciones")
+   })
+}
+  doRerender() {
+    this.rerender = true;
+    this.cdRef.detectChanges();
+    this.rerender = false;
+  }
 
-//   loadData() {
-//     this.tasksService.getTasks(this.id)
-//    .then(resultados => {
-//      this.tasks = resultados.length;
-//    })
-//    .catch(err => {
-//      console.log("No se han podido cargar las publicaciones")
-//    })
-// }
+  follow() {
+    this.userService.followUser(this.profileId, {follower_uuid: this.myId} )
+      .then(res=> {
+        this.followUser = false
+        return this.showUserProfile(this.userId);
+      });
+      console.log("----",this.users)
+      this.following();
+  }
+
+  unfollow() {
+    this.userService.unfollow(this.profileId, {follower_uuid: this.myId} )
+      .then(res=>{ 
+        this.followUser = true
+        return this.showUserProfile(this.userId);
+      });
+      this.showUserProfile(this.userId);
+      console.log("----",this.users)
+      this.deleteFollowing();
+  }
+
+  following() {
+    this.userService.addFollowing(this.myProfileId, {following_uuid: this.userId} )
+    .then(res=> {
+      return this.showUserProfile(this.userId);
+    });
+    console.log("----",this.users)
+  }
+  deleteFollowing() {
+    this.userService.deleteFollowing(this.myProfileId, {following_uuid: this.userId} )
+    .then(res=> {
+      return this.showUserProfile(this.userId);
+    });
+    console.log("----",this.users)
+  }
     
-    
-    handleSearch(value: string) {
+  handleSearch(value: string) {
     this.filtro_valor = value;
  }
 
