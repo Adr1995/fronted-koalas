@@ -1,1 +1,41 @@
-<p>post-item works!</p>
+<mat-card class="example-card overflow-hidden">
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+  </mat-card-header>
+  <mat-card-content class="w-11/12">
+    <p class="w-11/12 break-words">
+      <b>{{ post.title }}</b>
+    </p>
+    <p class="w-11/12 break-words">
+      {{ post.text }}
+    </p>
+  </mat-card-content>
+  <mat-card-content>
+    <div class="flex justify-between">
+      <!-- Este es fas fa heart -->
+      <fa-icon
+        [icon]="toggleLike"
+        (click)="toggleLikeIcon(post._id)"
+        size="lg"
+      ></fa-icon>
+      <p>{{ post.likes.length }} Likes</p>
+      <button
+        (click)="delete(post._id)"
+        class="
+          bg-red-500
+          hover:bg-red-700
+          text-white
+          font-bold
+          py-2
+          px-4
+          rounded
+        "
+      >
+        Borrar
+      </button>
+    </div>
+    <div class="flex px-6 py-4 justify-between">
+      <div class="flex"></div>
+    </div>
+  </mat-card-content>
+</mat-card>

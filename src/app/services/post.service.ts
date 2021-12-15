@@ -16,7 +16,7 @@ export class PostService {
    public deletePost(id:any){
     const token = localStorage.getItem('token');
      return axios.delete(`${environment.API_URL}/api/tasks/delete/${id}`, { headers: { authorization: `Bearer ${token}` }})
-     .then(result => result.data)}
+   }
 
    public getPosts(userid:string){
     const token = localStorage.getItem('token');
@@ -51,6 +51,6 @@ export class PostService {
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(body) // body data type must match "Content-Type" header
-    });
+    }).then(resp => resp.json())
   }
 }
