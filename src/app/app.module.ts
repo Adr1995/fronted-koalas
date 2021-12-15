@@ -48,6 +48,8 @@ import { SearchComponent } from './components/search/search.component';
 import { AnadirComponent } from './components/anadir/anadir.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { FollowAndUnfollowComponent } from './components/follow-and-unfollow/follow-and-unfollow.component';
+import { HomeContentComponent } from './components/home-content/home-content.component';
 
 
 @NgModule({
@@ -72,6 +74,8 @@ import { SearchPipe } from './pipes/search.pipe';
     AnadirComponent,
     SearchBarComponent,
     SearchPipe,
+    FollowAndUnfollowComponent,
+    HomeContentComponent,
     
     
   ],
@@ -79,7 +83,6 @@ import { SearchPipe } from './pipes/search.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatCardModule,
